@@ -66,8 +66,8 @@ namespace ApiDataDriven
                 };
             });
 
-            //services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
-            services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
+            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+            //services.AddDbContext<DataContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("connectionString")));
             //linha do ADDSCOPED - pode ser removida porque no sevices addDbContext já faz este papel
             //services.AddScoped<DataContext, DataContext>();
             //Adicionando a documentação para API
@@ -80,7 +80,7 @@ namespace ApiDataDriven
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-           // if (env.IsDevelopment())
+            if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
             
 
